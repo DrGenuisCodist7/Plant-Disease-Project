@@ -1,0 +1,40 @@
+|--- shadow_clip <= 0.00
+|   |--- entropy <= 0.89
+|   |   |--- entropy <= 0.85
+|   |   |   |--- brightness <= 0.50
+|   |   |   |   |--- class: gamma_bright
+|   |   |   |--- brightness >  0.50
+|   |   |   |   |--- class: clahe
+|   |   |--- entropy >  0.85
+|   |   |   |--- shadow_clip <= 0.00
+|   |   |   |   |--- class: clahe
+|   |   |   |--- shadow_clip >  0.00
+|   |   |   |   |--- class: gamma_dark
+|   |--- entropy >  0.89
+|   |   |--- entropy <= 0.95
+|   |   |   |--- brightness <= 0.56
+|   |   |   |   |--- class: gamma_bright
+|   |   |   |--- brightness >  0.56
+|   |   |   |   |--- class: hist_eq
+|   |   |--- entropy >  0.95
+|   |   |   |--- class: clahe
+|--- shadow_clip >  0.00
+|   |--- entropy <= 0.92
+|   |   |--- brightness <= 0.40
+|   |   |   |--- class: gamma_bright
+|   |   |--- brightness >  0.40
+|   |   |   |--- dynamic_range <= 0.70
+|   |   |   |   |--- class: hist_eq
+|   |   |   |--- dynamic_range >  0.70
+|   |   |   |   |--- class: gamma_dark
+|   |--- entropy >  0.92
+|   |   |--- contrast <= 0.22
+|   |   |   |--- entropy <= 0.93
+|   |   |   |   |--- class: none
+|   |   |   |--- entropy >  0.93
+|   |   |   |   |--- class: none
+|   |   |--- contrast >  0.22
+|   |   |   |--- dynamic_range <= 0.74
+|   |   |   |   |--- class: gamma_dark
+|   |   |   |--- dynamic_range >  0.74
+|   |   |   |   |--- class: none
